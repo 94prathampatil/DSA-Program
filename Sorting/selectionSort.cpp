@@ -1,26 +1,32 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main(){
-    int n=0,nums[100];
+    int arr[100];
+    int n=-1;
+    cout<<"Enter the size of Array:- "<<endl;
     cin>>n;
-
+    cout<<"Enter the "<<n<<" numbers to array"<<endl;
     for(int i=0;i<n;i++){
-        cin>>nums[i];
+        cin>>arr[i];
     }
 
-
-    for(int i=0;i<n-1;i++){
-        int minI=i;
-        for(int j=i+1;j<n;j++){
-            if(nums[j]>nums[minI]){
+    int i=0;
+    while(i<n-1){
+        int minI = i;
+        int j = i + 1;
+        while(j<n){
+            if(arr[minI]>arr[j]){
                 minI=j;
             }
+            j++;
         }
-        swap(nums[minI],nums[i]);
+        swap(arr[minI],arr[i]);
+        i++;
     }
 
     for(int i=0;i<n;i++){
-        cout<<" "<<nums[i];
+        cout<<arr[i]<<" ";
     }
+    return 0;
 }

@@ -2,29 +2,33 @@
 using namespace std;
 
 int main(){
-    int n=0, arr[100];
+    int arr[100];
+    int n=-1;
+    cout<<"Enter the size of Array:- "<<endl;
     cin>>n;
+    cout<<"Enter the "<<n<<" numbers to array"<<endl;
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
 
     for(int i=1;i<n;i++){
-        // We consider that first element is already sorted. That is why loop started from 1
         int temp=arr[i];
         int j=i-1;
-        for(;j>=0;j--){
+
+        while(j>=0){
             if(arr[j]>temp){
                 arr[j+1]=arr[j];
             }
-            else    
+            else{
                 break;
+            }
+            j--;
         }
         arr[j+1]=temp;
     }
 
-
-    cout<<"Sorted Array is:- "<<endl;
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
     }
+    return 0;
 }

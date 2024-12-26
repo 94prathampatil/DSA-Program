@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build C++ Program",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile the C++ program."
+        },
+        {
+            "label": "Run C++ Program with IO redirection",
+            "type": "shell",
+            "command": "${fileDirname}/${fileBasenameNoExtension} < input.txt > output.txt",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "folderOpen", 
+                "showOutput": "never",   // This line prevents the terminal from opening
+                "output": "silent"
+            }
+        }
+    ]
+}
