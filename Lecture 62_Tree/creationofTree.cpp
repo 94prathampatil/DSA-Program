@@ -17,8 +17,6 @@ class Node{
         this -> left = NULL;
         this -> right = NULL;
     }
-
-
 };
 
 Node* buildTree(Node* root){
