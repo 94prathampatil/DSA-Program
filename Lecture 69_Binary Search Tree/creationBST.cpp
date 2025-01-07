@@ -66,6 +66,48 @@ void inOrder(Node *root)
     inOrder(root->right);
 }
 
+Node *sucessorOfNode(Node *root, int tNode)
+{
+    Node *succ = NULL;
+
+    while (root != NULL)
+    {
+
+        if (tNode >= root->data)
+        {
+            root = root->right;
+        }
+        else
+        {
+            succ = root;
+            root = root->left;
+        }
+    }
+
+    return succ;
+}
+
+Node *predOfNode(Node *root, int tNode)
+{
+    Node *pred = NULL;
+
+    while (root != NULL)
+    {
+        // cout << "InLOOP" << endl;
+        if (tNode <= root -> data)
+        {
+            root = root->left;
+        }
+        else
+        {
+            pred = root;
+            root = root->right;
+        }
+    }
+
+    return pred;
+}
+
 int main()
 {
     Node *root = NULL;
@@ -74,7 +116,10 @@ int main()
     takeInput(root);
 
     inOrder(root);
-    cout << "\nl";
+    cout << "\n";
 
+    cout << "Successor of given Node is: " << sucessorOfNode(root, 30)->data << "\n";
+
+    cout << "Successor of given Node is : " << predOfNode(root, 30)->data << "\n";
     return 0;
 }
