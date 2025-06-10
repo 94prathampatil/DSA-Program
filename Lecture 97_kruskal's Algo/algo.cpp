@@ -33,7 +33,7 @@ class kruskal{
                 return node;
             }
 
-            return parent[node] = findParent(parent, parent[node]);
+            return parent[node] = findParent(parent, parent[node]); // Doing path compression by parent[node] = findParent(parent, parent[node]);
         }
 
         void unionSet(int u, int v, vector<int> &parent, vector<int> &rank)
